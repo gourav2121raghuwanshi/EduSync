@@ -1,0 +1,36 @@
+body{
+    text-align: center;
+}
+/* h1{
+    margin: auto;
+    text-align: center;
+} */
+
+.btns{
+    height: 130px; width: 130px;
+    border: 5px solid black;
+    border-radius: 10px;
+    margin: 0px 5px 10px 5px;
+}
+.btn-container{
+    display: flex;
+    justify-content: center;
+}
+.yellow{
+    background-color: yellow;
+}
+.orange{
+    background-color: orange;
+}
+.blue{
+    background-color: blue;
+}
+.pink{
+    background-color: pink;
+}
+.flash{
+    background-color: white;
+}
+.userflash{
+    background-color: purple;
+}

@@ -1,0 +1,49 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.heading {
+    font-size: 24px;
+}
+
+.play-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 20px;
+    cursor: pointer;
+   
+}
+
+.play-button:hover {
+    background-color: #0056b3;
+}
+
+.word-container {
+    margin: 20px;
+    border: 2px solid red;
+}
+.word-container a:hover {
+    
+}
+
+.word-item {
+    width: 90%; /* Two words per row on larger screens */
+    margin: 10px;
+    border: 2px solid black;
+    height : 40px;
+    background-color: aquamarine;
+}
+
+.word-item p {
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .word-item {
+        width: 80%; /* One word per row on smaller screens */
+    }
+}

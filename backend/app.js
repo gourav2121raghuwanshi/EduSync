@@ -29,6 +29,7 @@ app.use(fileUpload({
 
 app.use(express.json());
 app.use(cookieParser());
+
 dbConnect().then(() => {
   console.log("Connection successful");
 })
@@ -41,6 +42,7 @@ const socketIO = require('socket.io')(http, {
     origin: "http://localhost:5173"
   }
 });
+
 module.exports = socketIO;
 const connectSocket = require('./utils/socketIO');
 connectSocket();

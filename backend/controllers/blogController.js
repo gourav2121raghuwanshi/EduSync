@@ -1,5 +1,4 @@
 const Resource = require('../models/blogModel');
-const {imageUpload} = require("../controllers/fileUpload")
 exports.getResource = async (req,res) =>{
     const resources = await Resource.find({});
     return res.json(resources)

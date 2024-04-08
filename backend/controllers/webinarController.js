@@ -13,6 +13,7 @@ exports.Create = async(req, res) => {
         time,
         link
     })
+    
     const saved = await webinar.save();
     console.log(saved);
     return res.status(200).json(saved);

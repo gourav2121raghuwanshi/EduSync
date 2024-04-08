@@ -1,7 +1,6 @@
 const Marks = require('../models/marksShcema');
 const Parent = require('../models/parentModel')
 const Course = require('../models/courseModel')
-// const Assignment = require('../models/assignmentModel');
 exports.createMarks = async (req, res) => {
     try {
         console.log("in");

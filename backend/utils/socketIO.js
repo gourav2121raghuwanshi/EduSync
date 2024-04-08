@@ -2,7 +2,6 @@
 const socketIO = require('../app');
 const Chat = require('../models/chatModel');
 
-
 //Add this before the app.get() block
 const  connectSocket = ()=>{
     socketIO.on('connection', (socket) => {

@@ -127,3 +127,54 @@ exports.setSingleCourse = async (req, res) => {
 }
 
 
+
+
+
+exports.updateUser = async (req, res) => {
+    try {
+        if (req.user.id !== req.params.id)
+            return res.status(401).json("You Can Only Update Your Own Account");
+
+        if (req.body.password) {
+            req.body.password = await bcrypt.hash(req.body.password, 10);
+        }
+        const updatedUser = await Parent.findByIdAndUpdate(req.params.id, {
+            $set: {
+                name: req.body.username,
+                email: req.body.email,
+                password: req.body.password,
+                avatar: req.body.avatar,
+            }
+        }, { new: true })
+
+        res.status(200).json(updatedUser);
+    } catch (err) {
+        console.log(err.message);
+        res.status(401).json({
+            message: "cannot upadae user"
+        })
+    }
+};
+
+exports.deleteUser = async (req, res) => {
+    try {
+
+        if (req.user.id !== req.params.id) {
+            return res.status(401).json("You Can Delete Your Own Account");
+        }
+
+        await Parent.findByIdAndDelete(req.params.id);
+        res.clearCookie('token')
+        res.status(200)
+            .json('User Has been Deleted ')
+
+    } catch (err) {
+        console.log(err.message);
+        res.status(401).json({
+            message: "cannot upadae user"
+        })
+    }
+};
+
+
+

@@ -1,6 +1,5 @@
 const Word = require("../models/wordsModel");
 const AllWord = require("../models/AllWordsModel");
-const Course = require('../models/courseModel');
 
 exports.addWord = async(req, res) => {
     try{

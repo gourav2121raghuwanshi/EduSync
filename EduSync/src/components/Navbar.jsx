@@ -40,13 +40,13 @@ const Navbar = () => {
   return (
 
     <nav className='w-full  z-10 mx-auto   '>
-      <div className='flex flex-row justify-between mx-auto bg-blue-800  py-4  px-7 shadow-lg'>
-        <div className='flex flex-row gap-3 items-center'>
+      <div className='flex flex-row  items-center justify-between mx-auto bg-blue-800  py-4  px-7 shadow-lg'>
+        <div className='flex flex-row  gap-3 items-center'>
           <Link to="/"
             onClick={closeDropdown}>
-            <div className='flex flex-row items-center gap-1'>
+            <div className='flex flex-row justify-center items-center gap-1'>
               <img src={image} className='h-[25px] w-[25px]'></img>
-              <span className='text-blue-400 font-bold sm:text-2xl text-xl'>
+              <span className='text-blue-400 font-bold sm:text-3xl text-xl'>
 
                 Edusync</span>
             </div>
@@ -71,7 +71,7 @@ const Navbar = () => {
               <Link className='hover:text-gray-900 duration-200 transition-all' to='/join-course' >Join Course</Link>
             </button>
           }
-          <button className='hidden hover:cursor-pointer text-white sm:block'>
+          {/* <button className='hidden hover:cursor-pointer text-white sm:block'>
               <Link className='hover:text-gray-900 duration-200 transition-all' to='/forum' >Forum/Ask</Link>
           </button>
           <button className='hidden hover:cursor-pointer text-white sm:block'>
@@ -82,14 +82,14 @@ const Navbar = () => {
           </button>
           <button className='hidden hover:cursor-pointer text-white sm:block'>
               <Link className='hover:text-gray-900 duration-200 transition-all' to='/webinar' >Webinars</Link>
-          </button>
+          </button> */}
         </div>
         {/* part 2 */}
 
         <div className='flex flex-row gap-3    items-center'>
-          {
+          {/* {
             currentUser && <span onClick={handleSignOut} className='text-gray-100 text-lg hidden sm:block  sm:text-xl md:text-2xl font-semibold cursor-pointer'>Sign Out</span>
-          }
+          } */}
           {
             !currentUser && <div className='flex flex-row gap-3   items-center'>
               <div className='hidden sm:flex flex-row'>
@@ -105,7 +105,7 @@ const Navbar = () => {
             </div>
           }
           {/* dropdown */}
-          <div className="relative inline-block  sm:hidden text-left">
+          <div className="relative inline-block   text-left">
             <button
               onClick={toggleDropdown}
               type="button"
@@ -126,7 +126,7 @@ const Navbar = () => {
 
                     {
                       currentUser && currentUser.mode === 'parent' && <Link
-                        className='bg-blue-300 rounded-xl px-2 py-1 text-gray-700 font-semibold text-center'
+                        className='bg-blue-300 rounded-xl sm:hidden px-2 py-1 text-gray-700 font-semibold text-center'
                         to={'/ParentPage'}
                         onClick={closeDropdown}>
                         Your Courses
@@ -135,7 +135,7 @@ const Navbar = () => {
                     {
                       currentUser && currentUser.mode === 'parent' && <Link
 
-                        className='bg-blue-300 rounded-xl px-2 py-1 text-gray-700 font-semibold text-center '
+                        className='bg-blue-300 sm:hidden rounded-xl px-2 py-1 text-gray-700 font-semibold text-center '
                         to={'/join-course'}
                         onClick={closeDropdown}>
                         Join Course
@@ -144,22 +144,22 @@ const Navbar = () => {
                     {
                       currentUser && currentUser.mode === 'teacher' && <Link
 
-                        className='bg-blue-300 rounded-xl px-2 py-1 text-gray-700 font-semibold text-center'
+                        className='bg-blue-300 sm:hidden rounded-xl px-2 py-1 text-gray-700 font-semibold text-center'
                         to={'/TeacherPage'}
                         onClick={closeDropdown}>
                         Your Courses
                       </Link>
                     }
 
-                    {
+                   {
                       currentUser && currentUser.mode === 'teacher' && <Link
 
-                        className='bg-blue-300 rounded-xl px-2 py-1 text-gray-700 font-semibold text-center'
+                        className='bg-blue-300 sm:hidden rounded-xl px-2 py-1 text-gray-700 font-semibold text-center'
                         to={'/createCourse'}
                         onClick={closeDropdown}>
                         Create Course
                       </Link>
-                    }
+                    } 
                     <Link
                         className='bg-blue-300 rounded-xl px-2 py-1 text-gray-700 font-semibold text-center'
                         to={'/forum'}
@@ -178,6 +178,13 @@ const Navbar = () => {
                         onClick={closeDropdown}>
                         Resources
                     </Link>
+                    <Link
+                        className='bg-blue-300 rounded-xl px-2 py-1 text-gray-700 font-semibold text-center'
+                        to={'/profile'}
+                        onClick={closeDropdown}>
+                        Profile
+                    </Link>
+                    
                     {
                       currentUser && <span onClick={handleSignOut} className='text-red-500 text-center text-lg sm:text-xl md:text-2xl font-semibold cursor-pointer'>Sign Out</span>
                     }

@@ -7,7 +7,7 @@ import { signoutUserStart, signoutUserSuccess, signoutUserFailure } from '../red
 const ProfilePage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { error } = useSelector(state => state.user); // Assuming your error state is managed in userSlice
+    const { error } = useSelector(state => state.user); 
 
     const handleDeleteUser = async () => {
     };

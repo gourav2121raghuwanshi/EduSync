@@ -27,7 +27,11 @@ const parentSchema = new mongoose.Schema({
     mode: {
         type: String,
         default: "parent",
-    }
+    },
+    avatar: {
+        type: String,
+        default: "https://res.cloudinary.com/domheydkx/image/upload/v1705905528/gourav/uyb6ntwjcrxacztiw4iv.jpg"
+    },
 });
 
 module.exports = mongoose.model("Parent", parentSchema);

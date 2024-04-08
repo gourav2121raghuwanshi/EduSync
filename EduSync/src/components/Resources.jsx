@@ -18,7 +18,6 @@ const Resources = () => {
         }
       }
       getResource();
-
     },[])
   return (
     <div>

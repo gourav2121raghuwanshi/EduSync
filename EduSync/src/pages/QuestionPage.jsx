@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Quiz2.css'; // Import CSS file for styling
+import './Quiz2.css'; 
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';

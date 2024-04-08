@@ -1,13 +1,23 @@
+// const File = require("../models/File");
 const cloudinary = require('cloudinary').v2
+// LocalFileUpload => Handler Function
 
 
-const supportedTypes = ["jpg", "png", "jpeg", "webp"];
+
+
+// const cloudinary = require('cloudinary'); // Make sure to import the Cloudinary library
+const supportedTypes = ["jpg", "png", "jpeg"];
+// const supportedTypes2 = ["mp4", "mov"];
+
+// Check if the file type is supported
 function isFileTypeSupported(fileType, supportedTypes) {
     return supportedTypes.includes(fileType);
 }
+
+// // Function to upload a file to Cloudinary
 async function uploadFileToCloudinary(file, folder, quality) {
     const options = {
-        folder: folder,
+        folder: folder, // You can specify a folder in Cloudinary
     };
     if (quality) {
         options.quality = quality;
@@ -16,34 +26,28 @@ async function uploadFileToCloudinary(file, folder, quality) {
         const result = await cloudinary.uploader.upload(file.tempFilePath, options);
         return result;
     } catch (error) {
+        // Handle any potential errors during the upload
         console.error('Cloudinary upload error:', error);
-        throw error;
-    }
-}
-
-exports.uploadImage = async (req, res)=>{
-    const options = {
-        folder: "images1",
-    };
-    const file = s
-    try { 
-        const result = await cloudinary.uploader.upload(
-            file,
-            options,
-        )
-    }catch(error){
-        console.log(error);
+        throw error; // Re-throw the error or handle it according to your application's requirements
     }
 }
 
 
+///////////////////////////////////////////
+// Image upload handler
 exports.imageUpload = async (req, res) => {
-
+    // const { name, tags, email } = req.body;
     console.log("in");
     try {
-        const file = req.files.imageFile;
-        console.log(file);
 
+        // console.log(name, tags, email);
+        // console.log(req.files)
+        const file = req.files.imageFile;
+        // console.log(file);
+
+        // Validate the data fetched above
+
+        // Fetch file type
         const fileType = file.name.split('.').pop().toLowerCase();
         console.log(fileType);
 
@@ -55,16 +59,17 @@ exports.imageUpload = async (req, res) => {
         }
         console.log(fileType);
 
-       const response = await uploadFileToCloudinary(file, "gourav");
+        // File format supported , upload in cloudinary
+        const response = await uploadFileToCloudinary(file, "gourav");
 
+        // Save entry in DB (This part is commented out in your code)
         console.log("Response is", response);
 
-    
-        res.json({
-            success: true,
-            imageUrl: response.secure_url,
-            message: "Image successfully uploaded",
-        });
+
+        // Respond to the client
+        res.json(
+            response.secure_url
+        );
 
     } catch (err) {
         console.error(err)
@@ -74,11 +79,6 @@ exports.imageUpload = async (req, res) => {
             message: "Something went wrong",
         });
     }
+
 };
-
-
-
-
-
-
 

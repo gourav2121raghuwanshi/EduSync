@@ -32,6 +32,7 @@ import DiaplayParentSinglePage from './pages/DiaplayParentSinglePage';
 import WordGamePage from './pages/WordGamePage';
 import QuizPage from './pages/QuizPage';
 import About from './components/About';
+import FileUpload from './components/FileUpload';
 
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
     <>
       <BrowserRouter>
         <Routes>
+          {/* <Route path='/' element={<FileUpload />} /> */}
           <Route path='/' element={<HomePage />} />
           
           <Route element={<PrivateRoute />}>
@@ -50,6 +52,7 @@ const App = () => {
             <Route path='/TeacherPage' element={<TeacherPage />} />
             <Route path='/ParentPage' element={<ParentPage />} />
             <Route path='/ParentPage' element={<ParentPage />} />
+            <Route path='/profile' element={<ProfilePage />} />
             <Route path='/displaySingleCourseForParent/:id' element={<DiaplayParentSinglePage />} />
             <Route path='/createCourse' element={<CourseCreate />} />
             <Route path='/join-course' element={<JoinCourse />} />

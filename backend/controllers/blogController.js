@@ -1,5 +1,5 @@
 const Resource = require('../models/blogModel');
-const {imageUpload} = require("../config/fileUpload")
+const {imageUpload} = require("../controllers/fileUpload")
 exports.getResource = async (req,res) =>{
     const resources = await Resource.find({});
     return res.json(resources)
@@ -13,6 +13,8 @@ exports.createResource = async(req, res) =>{
         user,
         image
     })
+
+    console.log(" image is "+ image);
     const savedRes = await resource.save();
     console.log(savedRes);
     return res.status(200).json(savedRes);

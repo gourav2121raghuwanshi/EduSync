@@ -22,7 +22,6 @@ cloudinary.cloudinaryConnect();
 const imageUploadRoute = require('./routes/imageRoute');
 
 
-
 app.use(fileUpload({
   useTempFiles: true,
   tempFileDir: '/tmp/'
